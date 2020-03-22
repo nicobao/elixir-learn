@@ -6,8 +6,7 @@ defmodule QuizTest do
     setup [:quiz]
 
     test "the next question is randomly selected", %{quiz: quiz} do
-      %{current_question: %{template: first_template}} =
-      Quiz.select_question(quiz)
+      %{current_question: %{template: first_template}} = Quiz.select_question(quiz)
       other_template = eventually_pick_other_template(quiz, first_template)
       assert first_template != other_template
     end
@@ -73,7 +72,7 @@ defmodule QuizTest do
 
     quiz =
     build_quiz(mastery: 2)
-    |> Quiz.add_tempalte(fields)
+    |> Quiz.add_template(fields)
 
     {:ok, Map.put(context, :quiz, quiz)}
   end

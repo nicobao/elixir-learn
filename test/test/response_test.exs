@@ -10,7 +10,8 @@ describe "a right response and a wrong response" do
     refute wrong.correct
   end
 
-  test "a timestamp is added at build time", %{right: response} do
+  test "a timestamp is added at build time", context do
+    response = context[:right]
     assert %DateTime{} = response.timestamp
     assert response.timestamp < DateTime.utc_now
   end
